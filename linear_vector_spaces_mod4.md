@@ -80,10 +80,9 @@ A bilinear rule $\langle\phi\vert{}\psi\rangle$ pairing a bra and a ket to produ
 
 * **Norm of a Vector:** Defines magnitude in an inner-product space:
   
-
-  $$
-  \vert{}\vert{}\psi\vert{}\vert{} = \sqrt{\langle\psi\vert{}\psi\rangle}
-  $$
+$$
+\vert{}\vert{}\psi\vert{}\vert{} = \sqrt{\langle\psi\vert{}\psi\rangle}
+$$
 
 #### Basis Sets & Dimensionality
 
@@ -107,10 +106,9 @@ Orthonormal bases provide standardized coordinate frames where vector expansions
 
 * **Completeness Relation (Resolution of Identity):**
   
-
-  $$
-  \sum_j \vert{}\phi_j\rangle\langle\phi_j\vert{} = I
-  $$
+$$
+\sum_j \vert{}\phi_j\rangle\langle\phi_j\vert{} = I
+$$
 
 * **Operator Action:** The outer product ket-bra $\vert{}\phi\rangle\langle\psi\vert{}$ acts on a ket $\vert{}\gamma\rangle$ via $(\vert{}\phi\rangle\langle\psi\vert{})\vert{}\gamma\rangle = \vert{}\phi\rangle(\langle\psi\vert{}\gamma\rangle)$ to yield a new ket.
 
@@ -122,17 +120,15 @@ Constructs an orthonormal basis $\{\vert{}\phi_k\rangle\}$ from an arbitrary lin
 
 1. **Normalize the first vector:**
    
-
-   $$
-   \vert{}\phi_1\rangle = \frac{\vert{}\psi_1\rangle}{\sqrt{\langle\psi_1\vert{}\psi_1\rangle}}
-   $$
+$$
+\vert{}\phi_1\rangle = \frac{\vert{}\psi_1\rangle}{\sqrt{\langle\psi_1\vert{}\psi_1\rangle}}
+$$
 
 2. **Iteratively subtract projections along prior orthonormal directions and normalize:**
    
-
-   $$
-   \vert{}\phi_k\rangle = \frac{\vert{}\psi_k\rangle - \sum_{j=1}^{k-1}\langle\phi_j\vert{}\psi_k\rangle\vert{}\phi_j\rangle}{\left[\langle\psi_k\vert{}\psi_k\rangle - \sum_{j=1}^{k-1}\vert{}\langle\phi_j\vert{}\psi_k\rangle\vert{}^2\right]^{1/2}}
-   $$
+$$
+\vert{}\phi_k\rangle = \frac{\vert{}\psi_k\rangle - \sum_{j=1}^{k-1}\langle\phi_j\vert{}\psi_k\rangle\vert{}\phi_j\rangle}{\left[\langle\psi_k\vert{}\psi_k\rangle - \sum_{j=1}^{k-1}\vert{}\langle\phi_j\vert{}\psi_k\rangle\vert{}^2\right]^{1/2}}
+$$
 
 #### Change of Basis & Inequalities
 
@@ -143,9 +139,9 @@ Constructs an orthonormal basis $\{\vert{}\phi_k\rangle\}$ from an arbitrary lin
 * **Cauchy-Schwarz Inequality:**
   
 
-  $$
-  \vert{}\langle\phi\vert{}\psi\rangle\vert{} \le \vert{}\vert{}\phi\vert{}\vert{}\,\vert{}\vert{}\psi\vert{}\vert{}
-  $$
+$$
+\vert{}\langle\phi\vert{}\psi\rangle\vert{} \le \vert{}\vert{}\phi\vert{}\vert{}\,\vert{}\vert{}\psi\vert{}\vert{}
+$$
 
   
   *(Equality holds if and only if* $\vert{}\phi\rangle$ *and* $\vert{}\psi\rangle$ *are linearly dependent)*
@@ -153,9 +149,9 @@ Constructs an orthonormal basis $\{\vert{}\phi_k\rangle\}$ from an arbitrary lin
 * **Triangle Inequality:**
   
 
-  $$
-  \vert{}\vert{}\phi + \psi\vert{}\vert{} \le \vert{}\vert{}\phi\vert{}\vert{} + \vert{}\vert{}\psi\vert{}\vert{}
-  $$
+$$
+\vert{}\vert{}\phi + \psi\vert{}\vert{} \le \vert{}\vert{}\phi\vert{}\vert{} + \vert{}\vert{}\psi\vert{}\vert{}
+$$
 
 > ✍️ **Added by:** Lokesh, 2026-11-09
 
@@ -165,7 +161,11 @@ Matrices can be viewed either as elements of an $n^2$-dimensional LVS or as line
 
 #### Pauli Matrix Basis ($2 \times 2$ Matrices)
 
-Any general matrix $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ can be expanded in the basis $\{I, \sigma_1, \sigma_2, \sigma_3\}$ as $M = \alpha_0 I + \vec{\alpha}\cdot\vec{\sigma}$:
+Any general matrix
+$
+M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+$
+ can be expanded in the basis $\{I, \sigma_1, \sigma_2, \sigma_3\}$ as $M = \alpha_0 I + \vec{\alpha}\cdot\vec{\sigma}$:
 
 $$
 I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad \sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
@@ -186,9 +186,9 @@ $$
 * **Closed Form for Pauli Vectors:**
   
 
-  $$
-  e^{i\vec{a}\cdot\vec{\sigma}} = I\cos a + i\frac{\vec{a}\cdot\vec{\sigma}}{a}\sin a
-  $$
+$$
+e^{i\vec{a}\cdot\vec{\sigma}} = I\cos a + i\frac{\vec{a}\cdot\vec{\sigma}}{a}\sin a
+$$
 
 * **General** $2 \times 2$ **Matrix Exponential:** $e^M = e^{\alpha_0}\left(I\cosh\alpha + \frac{\vec{\alpha}\cdot\vec{\sigma}}{\alpha}\sinh\alpha\right)$.
 
@@ -197,21 +197,21 @@ $$
 * **3D Rotations:** Rotations $R(\vec{n}, \psi)$ around unit axis $\vec{n}$ by angle $\psi$ are exponentiated generators:
   
 
-  $$
-  R(\vec{n}, \psi) = e^{i\vec{J}\cdot\vec{n}\psi}
-  $$
+$$
+R(\vec{n}, \psi) = e^{i\vec{J}\cdot\vec{n}\psi}
+$$
 
 * **Rodrigues' Rotation Formula:** Explicit vector transformation under rotation:
   
 
-  $$
-  \vec{r}' = \cos\psi\,\vec{r} + (1-\cos\psi)(\vec{r}\cdot\vec{n})\vec{n} + \sin\psi(\vec{r}\times\vec{n})
-  $$
+$$
+\vec{r}' = \cos\psi\,\vec{r} + (1-\cos\psi)(\vec{r}\cdot\vec{n})\vec{n} + \sin\psi(\vec{r}\times\vec{n})
+$$
 
 #### Eigenvalue Spectrum & Secular Equation
 
 * **Characteristic Polynomial:** Calculated via $P_M(\lambda) = \det(\lambda I - M) = \lambda^n + c_1 \lambda^{n-1} + \dots + c_n = 0$.
 
-* **Similarity Invariance:** Eigenvalues remain invariant under similarity transformations $M \mapsto S M S^{-1}$. Coefficients relate to trace invariants ($c_1 = -\text{Tr}(M)$ and $c_n = (-1)^n \det(M)$).
+* **Similarity Invariance:** Eigenvalues remain invariant under similarity transformations $M \mapsto S M S^{-1}$. Coefficients relate to trace invariants ($c_1 = -\text{Tr}(M)$ and $c_n = (-1)^n \det(M)$
 
 > ✍️ **Added by:** Ritika, 2026-11-10
