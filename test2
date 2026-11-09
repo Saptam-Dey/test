@@ -1,0 +1,212 @@
+# Linear Vector Spaces, Dirac Notation, and Matrix Algebras
+
+## Table of Contents
+
+* [1. Fundamentals of Linear Vector Spaces and Dirac Notation](#1-fundamentals-of-linear-vector-spaces-and-dirac-notation)
+* [2. Dual Spaces, Inner Products, Basis Sets, and Dimensionality](#2-dual-spaces-inner-products-basis-sets-and-dimensionality)
+* [3. Orthonormal Basis Sets, Gram-Schmidt Procedure, and Vector Inequalities](#3-orthonormal-basis-sets-gram-schmidt-procedure-and-vector-inequalities)
+* [4. Pauli Matrices, Matrix Exponentials, 3D Rotations, and Secular Equations](#4-pauli-matrices-matrix-exponentials-3d-rotations-and-secular-equations)
+
+---
+
+### 1. Fundamentals of Linear Vector Spaces and Dirac Notation
+
+A Linear Vector Space (LVS) $V$ over a field $\mathbb{F}$ ($\mathbb{R}$ or $\mathbb{C}$) is a set of elements (vectors) closed under vector addition and scalar multiplication.
+
+#### Vector Addition Axioms
+
+Vector addition defines a mapping $V \times V \to V$ satisfying:
+
+* **Commutativity:** $|\phi\rangle + |\chi\rangle = |\chi\rangle + |\phi\rangle$
+
+* **Associativity:** $|\phi\rangle + (|\psi\rangle + |\chi\rangle) = (|\phi\rangle + |\psi\rangle) + |\chi\rangle$
+
+* **Existence of a Unique Null Vector ($|\Omega\rangle = 0$):** $|\phi\rangle + |\Omega\rangle = |\phi\rangle$
+
+* **Existence of a Unique Additive Inverse ($-|\phi\rangle$):** $|\phi\rangle + (-|\phi\rangle) = |\Omega\rangle$
+
+#### Scalar Multiplication Axioms
+
+Scalar multiplication defines a mapping $\mathbb{F} \times V \to V$ for scalars $a, b \in \mathbb{F}$ satisfying:
+
+* **Closure:** $a|\psi\rangle \in V$
+
+* **Scalar Associativity:** $a(b|\psi\rangle) = (ab)|\psi\rangle$
+
+* **Distributivity:** $(a+b)|\psi\rangle = a|\psi\rangle + b|\psi\rangle$ and $a(|\psi\rangle + |\phi\rangle) = a|\psi\rangle + a|\phi\rangle$
+
+* **Scalar Identity and Zero:** $1|\psi\rangle = |\psi\rangle$ and $0|\psi\rangle = |\Omega\rangle = 0$
+
+#### Dirac Notation & Examples
+
+* **Dirac Notation:** Introduced by Paul Dirac for quantum mechanics, representing abstract vectors as "ket" vectors $|\psi\rangle$.
+
+* **Concrete Examples of LVS:**
+
+  * **Euclidean Space ($\mathbb{R}^3$):** Represented by column vectors $|\mathbf{v}\rangle = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$.
+
+  * **Differential Equation Solutions:** The set of solutions to $\frac{d^2y}{dt^2} = -\omega^2 y$ forms a 2D LVS spanned by linearly independent basis functions $y_1(t) = e^{i\omega t}$ and $y_2(t) = e^{-i\omega t}$ (or $\cos(\omega t)$ and $\sin(\omega t)$).
+
+  * **Tuple Spaces:** Ordered real or complex $n$-tuples ($\mathbb{R}^n, \mathbb{C}^n$).
+
+  * **Matrix Spaces:** Set of all $n \times n$ square matrices under elementwise addition.
+
+  * **Discrete/Binary Field Spaces:** Spaces defined over binary fields $\{0, 1\}$ with rules $1+0=1$, $1+1=0$, $0 \times 1 = 0$, and $1 \times 1 = 1$.
+
+> ✍️ **Added by:** Saptam, 2026-11-08
+
+---
+
+### 2. Dual Spaces, Inner Products, Basis Sets, and Dimensionality
+
+The concept of dual spaces allows associating scalars with vectors, generalizing metric concepts like vector lengths and dot products.
+
+#### Dual Space ($\tilde{V}$)
+
+The collection of all linear functionals $S_\phi[\cdot]$ mapping vectors to scalars forms a dual vector space $\tilde{V}$. Elements of $\tilde{V}$ are denoted as "bra" vectors $\langle\phi|$.
+
+* **Dual functional properties:** $S_{\phi+\chi}[\cdot] = S_\phi[\cdot] + S_\chi[\cdot]$ and $S_{a\phi}[\cdot] = a^* S_\phi[\cdot]$
+
+* **Self-Duality:** $\tilde{\tilde{V}} \equiv V$. In 3D Euclidean space, ket vectors are $3 \times 1$ columns while bra vectors are represented as $1 \times 3$ row vectors $\langle\psi| = \begin{pmatrix} d & e & f \end{pmatrix}$.
+
+#### Inner Product & Norm
+
+A bilinear rule $\langle\phi|\psi\rangle$ pairing a bra and a ket to produce a scalar:
+
+* **Linearity in Ket:** $\langle\phi| ( |\psi\rangle + |\chi\rangle ) = \langle\phi|\psi\rangle + \langle\phi|\chi\rangle$ and $\langle\phi| a\psi\rangle = a\langle\phi|\psi\rangle$
+
+* **Anti-linearity in Bra:** $\langle a\phi|\psi\rangle = a^*\langle\phi|\psi\rangle$
+
+* **Conjugate Symmetry:** $\langle\phi|\psi\rangle = \langle\psi|\phi\rangle^*$
+
+* **Norm of a Vector:** Defines magnitude in an inner-product space:
+
+  $$
+  \|\psi\| = \sqrt{\langle\psi|\psi\rangle}
+  $$
+
+#### Basis Sets & Dimensionality
+
+* **Linear Independence:** A set $\{|\psi_k\rangle\}$ is linearly independent if $\sum_k a_k |\psi_k\rangle = 0 \implies a_k = 0$ for all $k$.
+
+* **Spanning Property:** A set spans $V$ if any $|\gamma\rangle \in V$ can be expanded as $|\gamma\rangle = \sum_k b_k |\psi_k\rangle$.
+
+* **Dimensionality ($n$):** The number of basis vectors in an LVS is unique. Every $n$-dimensional inner-product LVS is isomorphic to $\mathbb{R}^n$ or $\mathbb{C}^n$.
+
+* **Infinite-Dimensional Spaces:** Spaces with no finite basis, such as the space of all polynomials of a complex variable $z$.
+
+> ✍️ **Added by:** Arpita, 2026-11-09
+
+---
+
+### 3. Orthonormal Basis Sets, Gram-Schmidt Procedure, and Vector Inequalities
+
+Orthonormal bases provide standardized coordinate frames where vector expansions simplify into component projections.
+
+#### Orthonormality & Completeness
+
+* **Orthonormality Condition:** $\langle\phi_j|\phi_k\rangle = \delta_{jk}$ (Kronecker delta).
+
+* **Completeness Relation (Resolution of Identity):**
+
+  $$
+  \sum_j |\phi_j\rangle\langle\phi_j| = I
+  $$
+
+* **Operator Action:** The outer product ket-bra $|\phi\rangle\langle\psi|$ acts on a ket $|\gamma\rangle$ via $(|\phi\rangle\langle\psi|)|\gamma\rangle = |\phi\rangle(\langle\psi|\gamma\rangle)$ to yield a new ket.
+
+* **Component Expansion:** For $|\psi\rangle = \sum_k c_k |\phi_k\rangle$, the expansion coefficients are projections $c_k = \langle\phi_k|\psi\rangle$.
+
+#### Gram-Schmidt Orthonormalization
+
+Constructs an orthonormal basis $\{|\phi_k\rangle\}$ from an arbitrary linearly independent set $\{|\psi_k\rangle\}$:
+
+1. **Normalize the first vector:**
+
+   $$
+   |\phi_1\rangle = \frac{|\psi_1\rangle}{\sqrt{\langle\psi_1|\psi_1\rangle}}
+   $$
+
+2. **Iteratively subtract projections along prior orthonormal directions and normalize:**
+
+   $$
+   |\phi_k\rangle = \frac{|\psi_k\rangle - \sum_{j=1}^{k-1}\langle\phi_j|\psi_k\rangle|\phi_j\rangle}{\left[\langle\psi_k|\psi_k\rangle - \sum_{j=1}^{k-1}|\langle\phi_j|\psi_k\rangle|^2\right]^{1/2}}
+   $$
+
+#### Change of Basis & Inequalities
+
+* **Basis Transformations:** Coefficients transform between bases $\{|\phi_k\rangle\}$ and $\{|\chi_j\rangle\}$ via $c_k = \sum_j d_j \langle\phi_k|\chi_j\rangle$.
+
+* **Parseval's Identity:** Inner products and norms are basis-independent: $\langle\psi_A|\psi_B\rangle = \sum_k c_k^* C_k = \sum_j d_j^* D_j$.
+
+* **Cauchy-Schwarz Inequality:**
+
+  $$
+  |\langle\phi|\psi\rangle| \le \|\phi\|\,\|\psi\|
+  $$
+
+  *(Equality holds if and only if $|\phi\rangle$ and $|\psi\rangle$ are linearly dependent)*
+
+* **Triangle Inequality:**
+
+  $$
+  \|\phi + \psi\| \le \|\phi\| + \|\psi\|
+  $$
+
+> ✍️ **Added by:** Lokesh, 2026-11-09
+
+---
+
+### 4. Pauli Matrices, Matrix Exponentials, 3D Rotations, and Secular Equations
+
+Matrices can be viewed either as elements of an $n^2$-dimensional LVS or as linear operators acting on an $n$-dimensional LVS.
+
+#### Pauli Matrix Basis ($2 \times 2$ Matrices)
+
+Any general matrix $M = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ can be expanded in the basis $\{I, \sigma_1, \sigma_2, \sigma_3\}$ as $M = \alpha_0 I + \vec{\alpha}\cdot\vec{\sigma}$:
+
+$$
+I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad \sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}, \quad \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+$$
+
+* **Algebraic Identities:** Hermiticity ($\sigma_i^\dagger = \sigma_i$), $\sigma_i^2 = I$, eigenvalues $\pm 1$.
+
+* **Product Rule:** $\sigma_k \sigma_l = \delta_{kl}I + i\epsilon_{klm}\sigma_m$.
+
+* **Commutator:** $[\sigma_k, \sigma_l] = 2i\epsilon_{klm}\sigma_m$ and **Anti-commutator:** $\{\sigma_k, \sigma_l\} = 2\delta_{kl}I$.
+
+* **Angular Momentum Algebra:** Generates $J_k = \frac{\sigma_k}{2}$ satisfying $[J_k, J_l] = i\epsilon_{klm}J_m$.
+
+#### Matrix Exponentials & 3D Rotations
+
+* **Matrix Exponential:** Defined via power series $e^M \equiv \sum_{n=0}^{\infty} \frac{M^n}{n!}$.
+
+* **Closed Form for Pauli Vectors:**
+
+  $$
+  e^{i\vec{a}\cdot\vec{\sigma}} = I\cos a + i\frac{\vec{a}\cdot\vec{\sigma}}{a}\sin a
+  $$
+
+* **General $2 \times 2$ Matrix Exponential:** $e^M = e^{\alpha_0}\left(I\cosh\alpha + \frac{\vec{\alpha}\cdot\vec{\sigma}}{\alpha}\sinh\alpha\right)$.
+
+* **Translation Operators:** $e^{a \frac{d}{dx}} f(x) = f(x+a)$ acts as a spatial translation operator.
+
+* **3D Rotations:** Rotations $R(\vec{n}, \psi)$ around unit axis $\vec{n}$ by angle $\psi$ are exponentiated generators:
+
+  $$
+  R(\vec{n}, \psi) = e^{i\vec{J}\cdot\vec{n}\psi}
+  $$
+
+* **Rodrigues' Rotation Formula:** Explicit vector transformation under rotation:
+
+  $$
+  \vec{r}' = \cos\psi\,\vec{r} + (1-\cos\psi)(\vec{r}\cdot\vec{n})\vec{n} + \sin\psi(\vec{r}\times\vec{n})
+  $$
+
+#### Eigenvalue Spectrum & Secular Equation
+
+* **Characteristic Polynomial:** Calculated via $P_M(\lambda) = \det(\lambda I - M) = \lambda^n + c_1 \lambda^{n-1} + \dots + c_n = 0$.
+
+* **Similarity Invariance:** Eigenvalues remain invariant under similarity transformations $M \mapsto S M S^{-1}$. Coefficients relate to trace invariants ($c_1 = -\text{Tr}(M)$ and $c_n = (-1)^n \det(M)$).
+
+> ✍️ **Added by:** Ritika, 2026-11-10
